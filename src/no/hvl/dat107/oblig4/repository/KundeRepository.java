@@ -52,8 +52,7 @@ public class KundeRepository {
 		ObjectId objectId = new ObjectId(id);
 		kunde.setId(objectId);
 
-		Bson filter = eq("id", objectId);
-
+		Bson filter = eq("_id", objectId);
 		FindOneAndReplaceOptions returnDoc = new FindOneAndReplaceOptions().returnDocument(ReturnDocument.AFTER);
 		return kunder.findOneAndReplace(filter, kunde, returnDoc);
 	}
